@@ -5,5 +5,6 @@ func process(s string) string {
 }
 
 func main() {
-	result := process(42)
+	result := process("42")
+	println(result)
 }
