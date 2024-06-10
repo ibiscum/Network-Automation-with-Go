@@ -18,7 +18,7 @@ require (
 	github.com/mdlayher/netlink v1.7.2 // indirect
 	github.com/mdlayher/socket v0.4.1 // indirect
 	github.com/oschwald/maxminddb-golang v1.13.0 // indirect
-	golang.org/x/net v0.23.0 // indirect
-	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.20.0 // indirect
+	golang.org/x/net v0.26.0 // indirect
+	golang.org/x/sync v0.7.0 // indirect
+	golang.org/x/sys v0.21.0 // indirect
 )

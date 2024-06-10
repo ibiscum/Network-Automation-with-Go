@@ -5,4 +5,10 @@ use (
 	./ch02
 	./ch03
 	./ch04
+	./ch05/closed-loop
+	./ch06
+	./ch07
+	./ch08
+	./ch09
+	./ch10
 )
