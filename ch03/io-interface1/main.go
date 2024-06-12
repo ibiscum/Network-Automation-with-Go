@@ -2,6 +2,7 @@ package main
 
 import (
 	"io"
+	"log"
 	"os"
 	"strings"
 )
@@ -14,5 +15,8 @@ func main() {
 	}
 	defer dst.Close()
 
-	io.Copy(dst, src)
+	_, err = io.Copy(dst, src)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

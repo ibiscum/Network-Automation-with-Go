@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"sync"
 	"time"
 )
 
 func get_config(d string) string {
-	time.Sleep(time.Duration(rand.Intn(1)) * time.Second)
+	time.Sleep(5 * time.Second)
 	return fmt.Sprintf("Connected to device %q", d)
 }
 

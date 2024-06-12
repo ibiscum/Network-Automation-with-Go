@@ -6,7 +6,7 @@ import (
 
 func mutateV(input []string) {
 	input[0] = "r03"
-	input = append(input, "r04")
+	// input = append(input, "r04")
 }
 
 func mutateP(input *[]string) {
