@@ -10,7 +10,6 @@ include ch12/targets.mk
 
 GOBIN=$(shell which go)
 
-
 .DEFAULT_GOAL := help
 
 .EXPORT_ALL_VARIABLES:
@@ -51,6 +50,3 @@ env-delete: check-aws-key check-aws-secret ## Delete test enviroment on AWS. Mak
 
 env-show:  ## Show test environment details
 	@cat lab-state/.vm || echo 'VM state file not found'
-
-
-

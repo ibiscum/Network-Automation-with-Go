@@ -2,11 +2,11 @@ package main
 
 import (
 	"flag"
-	"os"
 	"io"
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 // Examples:
@@ -43,5 +43,8 @@ func main() {
 		log.Fatal(err)
 	}
 	defer res.Body.Close()
-	io.Copy(os.Stdout, res.Body)
+	_, err = io.Copy(os.Stdout, res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

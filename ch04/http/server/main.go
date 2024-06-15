@@ -42,7 +42,8 @@ func getMAC(input []string) string {
 
 	mac, err := net.ParseMAC(input[0])
 	if err != nil {
-		return fmt.Sprintf("Failed to parse MAC")
+		tmp := "failed to parse MAC"
+		return tmp
 	}
 
 	oui := mac[:3].String()
@@ -50,7 +51,8 @@ func getMAC(input []string) string {
 
 	res, ok := macDB[oui]
 	if !ok {
-		return fmt.Sprintf("result not found\n")
+		tmp := "result not found"
+		return tmp
 	}
 	return res
 }
@@ -73,7 +75,7 @@ func lookup(w http.ResponseWriter, req *http.Request) {
 		}
 
 	}
-	fmt.Fprintf(w, response)
+	fmt.Fprint(w, response)
 }
 
 func check(w http.ResponseWriter, req *http.Request) {

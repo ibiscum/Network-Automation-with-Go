@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	api "json-rpc/pkg/srl"
+	api "github.com/ibiscum/Network-Automation-with-Go/ch08/json-rpc/pkg/srl"
 	"log"
 	"net/http"
 	"os"

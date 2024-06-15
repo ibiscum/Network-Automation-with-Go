@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"grpc/pkg/oc"
+	"github.com/ibiscum/Network-Automation-with-Go/ch08/grpc/pkg/oc"
 
 	"github.com/openconfig/ygot/ygot"
 )
@@ -132,10 +132,10 @@ func (m *Model) buildRoutePolicy(dev *oc.Device) error {
 }
 
 /*
-    "error-path": "openconfig-telemetry:telemetry-system/",
-    "error-message": "Unknown element is specified.",
-    "error-info": {
-    "bad-element": "persistent-subscriptions"
+	"error-path": "openconfig-telemetry:telemetry-system/",
+	"error-message": "Unknown element is specified.",
+	"error-info": {
+	"bad-element": "persistent-subscriptions"
 
 FIX: Modify OC YANG model :-(
 */

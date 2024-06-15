@@ -12,12 +12,12 @@ import (
 )
 
 var (
-	listenAddr     = "0.0.0.0"
-	listenPort     = 32767
-	probeSizeBytes = 9
-	maxReadBuffer  = 425984
-	retryTimeout   = time.Second * 5
-	probeInterval  = time.Second
+	listenAddr = "0.0.0.0"
+	listenPort = 32767
+	// probeSizeBytes = 9
+	maxReadBuffer = 425984
+	retryTimeout  = time.Second * 5
+	// probeInterval  = time.Second
 )
 
 func setupSigHandlers(cancel context.CancelFunc) {
@@ -32,10 +32,10 @@ func setupSigHandlers(cancel context.CancelFunc) {
 
 }
 
-type probe struct {
-	SeqNum uint8
-	SendTS int64
-}
+// type probe struct {
+// 	SeqNum uint8
+// 	SendTS int64
+// }
 
 func main() {
 	port := flag.Int("port", listenPort, "UDP listen port")
