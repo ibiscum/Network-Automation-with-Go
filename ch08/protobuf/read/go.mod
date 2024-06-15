@@ -1,0 +1,10 @@
+module protobuf
+
+go 1.17
+
+require (
+	github.com/PacktPublishing/Network-Automation-with-Go/ch08/protobuf/pb v0.0.0-20220509155539-3c6dd5d4dc86
+	google.golang.org/protobuf v1.33.0
+)
+
+replace github.com/PacktPublishing/Network-Automation-with-Go/ch08/protobuf/pb => ../pb
