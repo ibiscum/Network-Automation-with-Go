@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/karimra/gnmic v0.24.1
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v2 v2.4.0
 )
 
