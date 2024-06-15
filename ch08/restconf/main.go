@@ -11,7 +11,7 @@ import (
 	"net/url"
 	"os"
 	"path"
-	api "restconf/pkg/eos"
+	api "github.com/ibiscum/Network-Automation-with-Go/ch08/restconf/pkg/eos"
 
 	"github.com/openconfig/ygot/ygot"
 	"gopkg.in/yaml.v2"

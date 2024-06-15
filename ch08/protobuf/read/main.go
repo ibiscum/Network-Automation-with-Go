@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/PacktPublishing/Network-Automation-with-Go/ch08/protobuf/pb"
+	"github.com/ibiscum/Network-Automation-with-Go/ch08/protobuf/pb"
 	"google.golang.org/protobuf/proto"
 )
 

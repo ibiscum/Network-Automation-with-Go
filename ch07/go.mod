@@ -7,7 +7,7 @@ require (
 	github.com/karimra/gnmic v0.26.0
 	github.com/scrapli/scrapligo v1.3.1
 	github.com/scrapli/scrapligocfg v1.0.0
-	google.golang.org/protobuf v1.34.1
+	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v2 v2.4.0
 )
 

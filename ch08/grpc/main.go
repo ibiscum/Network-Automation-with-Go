@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"grpc/pkg/oc"
-	"grpc/proto/bgp"
-	xr "grpc/proto/ems"
-	"grpc/proto/telemetry"
+	"github.com/ibiscum/Network-Automation-with-Go/ch08/grpc/pkg/oc"
+	"github.com/ibiscum/Network-Automation-with-Go/ch08/grpc/proto/bgp"
+	xr "github.com/ibiscum/Network-Automation-with-Go/ch08/grpc/proto/ems"
+	"github.com/ibiscum/Network-Automation-with-Go/ch08/grpc/proto/telemetry"
 
 	"github.com/openconfig/ygot/ygot"
 	"github.com/tidwall/gjson"

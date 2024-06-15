@@ -11,7 +11,7 @@ require (
 	github.com/osrg/gobgp/v3 v3.27.0
 	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/net v0.26.0
-	google.golang.org/protobuf v1.34.1
+	google.golang.org/protobuf v1.34.2
 )
 
 require (

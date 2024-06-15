@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	xr "grpc/proto/ems"
+	xr "github.com/ibiscum/Network-Automation-with-Go/ch08/grpc/proto/ems"
 )
 
 // Provides the user/password for the connection. It implements

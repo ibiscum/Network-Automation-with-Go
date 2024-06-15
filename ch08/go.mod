@@ -8,8 +8,13 @@ require (
 	github.com/openconfig/goyang v1.0.0
 	github.com/openconfig/ygot v0.6.0
 	google.golang.org/grpc v1.64.0
-	google.golang.org/protobuf v1.34.1
+	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v2 v2.4.0
+)
+
+require (
+	github.com/tidwall/match v1.1.1 // indirect
+	github.com/tidwall/pretty v1.2.0 // indirect
 )
 
 require (
@@ -27,6 +32,7 @@ require (
 	github.com/opencontainers/image-spec v1.1.0 // indirect
 	github.com/protocolbuffers/txtpbfmt v0.0.0-20230328191034-3462fbc510c0 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
+	github.com/tidwall/gjson v1.17.1
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.26.0 // indirect
 	golang.org/x/oauth2 v0.20.0 // indirect

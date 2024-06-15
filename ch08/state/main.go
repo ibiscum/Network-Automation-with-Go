@@ -3,11 +3,11 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
-	srlAPI "json-rpc/pkg/srl"
+	srlAPI "github.com/ibiscum/Network-Automation-with-Go/ch08/json-rpc/pkg/srl"
 	"log"
 	"net/http"
 	"reflect"
-	eosAPI "restconf/pkg/eos"
+	eosAPI "github.com/ibiscum/Network-Automation-with-Go/ch08/restconf/pkg/eos"
 	"sync"
 
 	"cuelang.org/go/cue/cuecontext"
