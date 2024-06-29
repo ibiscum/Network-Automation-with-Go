@@ -102,6 +102,7 @@ require (
 	github.com/deepmap/oapi-codegen v1.16.3
 	github.com/go-openapi/strfmt v0.23.0
 	github.com/go-resty/resty/v2 v2.13.1
+	github.com/nautobot/go-nautobot v1.5.8-beta
 	github.com/netbox-community/go-netbox v0.0.0-20230225105939-fe852c86b3d6
 	github.com/sirikothe/gotextfsm v1.0.1-0.20200816110946-6aa2cfd355e4 // indirect
 	github.com/yahoo/vssh v0.0.0-20201122023451-bfa903e660fc

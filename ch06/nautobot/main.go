@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/deepmap/oapi-codegen/pkg/types"
-	nb "github.com/nautobot/go-nautobot"
+	nb "github.com/nautobot/go-nautobot/pkg/nautobot"
 )
 
 func check(err error) {

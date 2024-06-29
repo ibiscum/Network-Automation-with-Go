@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"context"
+	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/deepmap/oapi-codegen/pkg/types"
-	nb "github.com/nautobot/go-nautobot"
+	nb "github.com/nautobot/go-nautobot/pkg/nautobot"
 )
 
 func NewSecurityProviderNautobotToken(t string) (*SecurityProviderNautobotToken, error) {
