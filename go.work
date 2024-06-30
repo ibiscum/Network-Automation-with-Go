@@ -10,5 +10,7 @@ use (
 	./ch07
 	./ch08
 	./ch09
-	./ch10
+	./ch10/bgp-ping
+    ./ch10/packet-capture
+    ./ch10/top-talkers
 )

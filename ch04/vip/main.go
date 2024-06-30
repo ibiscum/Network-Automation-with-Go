@@ -2,10 +2,12 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"log"
 	"net"
+	"net/netip"
 	"os"
 	"os/signal"
 	"syscall"
@@ -75,12 +77,17 @@ func (c *vip) sendGARP() error {
 		return fmt.Errorf("error parsing IP: %s", err)
 	}
 
+	ipAddr, err := netip2Addr(ip)
+	if err != nil {
+		return fmt.Errorf("error parsing IP: %s", err)
+	}
+
 	arpPayload, err := arp.NewPacket(
 		arp.OperationReply,  // op
 		c.intf.HardwareAddr, // srcHW
-		ip,                  // srcIP
-		c.intf.HardwareAddr, //dstHW
-		ip,                  //dstIP
+		ipAddr,              // srcIP
+		c.intf.HardwareAddr, // dstHW
+		ipAddr,              // dstIP
 	)
 	if err != nil {
 		return fmt.Errorf("error building ARP packet: %s", err)
@@ -99,6 +106,13 @@ func (c *vip) sendGARP() error {
 	}
 
 	return c.emitFrame(ethFrame)
+}
+
+func netip2Addr(ip net.IP) (netip.Addr, error) {
+	if addr, ok := netip.AddrFromSlice(ip); ok {
+		return addr, nil
+	}
+	return netip.Addr{}, errors.New("invalid IP")
 }
 
 func main() {

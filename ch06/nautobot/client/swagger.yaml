@@ -1,12 +1,37 @@
 openapi: 3.0.3
+tags: [
+  {
+    name: circuits
+  },
+  {
+    name: dcim
+  },
+  {
+    name: extras
+  },
+  {
+    name: plugins
+  },
+  {
+    name: virtualization
+  },
+  {
+    name: users
+  }
+]
 info:
+  contact:
+    name: ''
+    url: ''
+    email: john.doe@example.com
   title: API Documentation
   version: 1.3.4 (1.3)
   description: Source of truth and network automation platform
   license:
     name: Apache v2 License
+
 paths:
-  /circuits/circuit-terminations/:
+  /circuits/circuit-terminations:
     get:
       operationId: circuits_circuit_terminations_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -440,7 +465,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/circuit-terminations/{id}/:
+  /circuits/circuit-terminations/{id}:
     get:
       operationId: circuits_circuit_terminations_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -552,7 +577,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/circuit-terminations/{id}/trace/:
+  /circuits/circuit-terminations/{id}/trace:
     get:
       operationId: circuits_circuit_terminations_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -577,7 +602,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CircuitTermination'
           description: ''
-  /circuits/circuit-types/:
+  /circuits/circuit-types:
     get:
       operationId: circuits_circuit_types_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -1087,7 +1112,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/circuit-types/{id}/:
+  /circuits/circuit-types/{id}:
     get:
       operationId: circuits_circuit_types_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -1203,7 +1228,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/circuits/:
+  /circuits/circuits:
     get:
       operationId: circuits_circuits_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -1991,7 +2016,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/circuits/{id}/:
+  /circuits/circuits/{id}:
     get:
       operationId: circuits_circuits_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -2107,7 +2132,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/provider-networks/:
+  /circuits/provider-networks:
     get:
       operationId: circuits_provider_networks_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -2671,7 +2696,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/provider-networks/{id}/:
+  /circuits/provider-networks/{id}:
     get:
       operationId: circuits_provider_networks_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -2787,7 +2812,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/providers/:
+  /circuits/providers:
     get:
       operationId: circuits_providers_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -3551,7 +3576,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /circuits/providers/{id}/:
+  /circuits/providers/{id}:
     get:
       operationId: circuits_providers_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -3667,7 +3692,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/cables/:
+  /dcim/cables:
     get:
       operationId: dcim_cables_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -4263,7 +4288,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/cables/{id}/:
+  /dcim/cables/{id}:
     get:
       operationId: dcim_cables_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -4379,7 +4404,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/connected-device/:
+  /dcim/connected-device:
     get:
       operationId: dcim_connected_device_list
       description: |-
@@ -4416,9 +4441,10 @@ paths:
                 items:
                   $ref: '#/components/schemas/Device'
           description: ''
-  /dcim/console-connections/:
+  /dcim/console-connections:
     get:
       operationId: dcim_console_connections_list
+      description: 'List of console connections'
       parameters:
       - in: query
         name: device
@@ -4580,7 +4606,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedConsolePortList'
           description: ''
-  /dcim/console-port-templates/:
+  /dcim/console-port-templates:
     get:
       operationId: dcim_console_port_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -4976,7 +5002,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-port-templates/{id}/:
+  /dcim/console-port-templates/{id}:
     get:
       operationId: dcim_console_port_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -5092,7 +5118,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-ports/:
+  /dcim/console-ports:
     get:
       operationId: dcim_console_ports_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -5733,7 +5759,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-ports/{id}/:
+  /dcim/console-ports/{id}:
     get:
       operationId: dcim_console_ports_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -5849,7 +5875,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-ports/{id}/trace/:
+  /dcim/console-ports/{id}/trace:
     get:
       operationId: dcim_console_ports_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -5874,7 +5900,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConsolePort'
           description: ''
-  /dcim/console-server-port-templates/:
+  /dcim/console-server-port-templates:
     get:
       operationId: dcim_console_server_port_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -6270,7 +6296,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-server-port-templates/{id}/:
+  /dcim/console-server-port-templates/{id}:
     get:
       operationId: dcim_console_server_port_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -6386,7 +6412,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-server-ports/:
+  /dcim/console-server-ports:
     get:
       operationId: dcim_console_server_ports_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -7027,7 +7053,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-server-ports/{id}/:
+  /dcim/console-server-ports/{id}:
     get:
       operationId: dcim_console_server_ports_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -7143,7 +7169,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/console-server-ports/{id}/trace/:
+  /dcim/console-server-ports/{id}/trace:
     get:
       operationId: dcim_console_server_ports_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -7168,7 +7194,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ConsoleServerPort'
           description: ''
-  /dcim/device-bay-templates/:
+  /dcim/device-bay-templates:
     get:
       operationId: dcim_device_bay_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -7556,7 +7582,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-bay-templates/{id}/:
+  /dcim/device-bay-templates/{id}:
     get:
       operationId: dcim_device_bay_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -7672,7 +7698,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-bays/:
+  /dcim/device-bays:
     get:
       operationId: dcim_device_bays_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -8286,7 +8312,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-bays/{id}/:
+  /dcim/device-bays/{id}:
     get:
       operationId: dcim_device_bays_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -8402,7 +8428,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-roles/:
+  /dcim/device-roles:
     get:
       operationId: dcim_device_roles_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -9028,7 +9054,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-roles/{id}/:
+  /dcim/device-roles/{id}:
     get:
       operationId: dcim_device_roles_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -9144,7 +9170,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-types/:
+  /dcim/device-types:
     get:
       operationId: dcim_device_types_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -9921,7 +9947,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/device-types/{id}/:
+  /dcim/device-types/{id}:
     get:
       operationId: dcim_device_types_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -10037,7 +10063,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/devices/:
+  /dcim/devices:
     get:
       operationId: dcim_devices_list
       description: |-
@@ -11461,7 +11487,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/devices/{id}/:
+  /dcim/devices/{id}:
     get:
       operationId: dcim_devices_retrieve
       description: |-
@@ -11585,7 +11611,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/devices/{id}/napalm/:
+  /dcim/devices/{id}/napalm:
     get:
       operationId: dcim_devices_napalm_retrieve
       description: Execute a NAPALM method on a Device
@@ -11614,7 +11640,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeviceNAPALM'
           description: ''
-  /dcim/front-port-templates/:
+  /dcim/front-port-templates:
     get:
       operationId: dcim_front_port_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -12010,7 +12036,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/front-port-templates/{id}/:
+  /dcim/front-port-templates/{id}:
     get:
       operationId: dcim_front_port_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -12126,7 +12152,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/front-ports/:
+  /dcim/front-ports:
     get:
       operationId: dcim_front_ports_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -12752,7 +12778,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/front-ports/{id}/:
+  /dcim/front-ports/{id}:
     get:
       operationId: dcim_front_ports_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -12868,7 +12894,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/front-ports/{id}/paths/:
+  /dcim/front-ports/{id}/paths:
     get:
       operationId: dcim_front_ports_paths_retrieve
       description: Return all CablePaths which traverse a given pass-through port.
@@ -12892,9 +12918,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FrontPort'
           description: ''
-  /dcim/interface-connections/:
+  /dcim/interface-connections:
     get:
       operationId: dcim_interface_connections_list
+      description: 'Interface connections list'
       parameters:
       - in: query
         name: device
@@ -12944,7 +12971,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedInterfaceConnectionList'
           description: ''
-  /dcim/interface-templates/:
+  /dcim/interface-templates:
     get:
       operationId: dcim_interface_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -13344,7 +13371,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/interface-templates/{id}/:
+  /dcim/interface-templates/{id}:
     get:
       operationId: dcim_interface_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -13460,7 +13487,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/interfaces/:
+  /dcim/interfaces:
     get:
       operationId: dcim_interfaces_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -14303,7 +14330,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/interfaces/{id}/:
+  /dcim/interfaces/{id}:
     get:
       operationId: dcim_interfaces_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -14419,7 +14446,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/interfaces/{id}/trace/:
+  /dcim/interfaces/{id}/trace:
     get:
       operationId: dcim_interfaces_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -14444,7 +14471,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Interface'
           description: ''
-  /dcim/inventory-items/:
+  /dcim/inventory-items:
     get:
       operationId: dcim_inventory_items_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -15224,7 +15251,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/inventory-items/{id}/:
+  /dcim/inventory-items/{id}:
     get:
       operationId: dcim_inventory_items_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -15340,7 +15367,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/manufacturers/:
+  /dcim/manufacturers:
     get:
       operationId: dcim_manufacturers_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -15962,7 +15989,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/manufacturers/{id}/:
+  /dcim/manufacturers/{id}:
     get:
       operationId: dcim_manufacturers_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -16078,7 +16105,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/platforms/:
+  /dcim/platforms:
     get:
       operationId: dcim_platforms_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -16850,7 +16877,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/platforms/{id}/:
+  /dcim/platforms/{id}:
     get:
       operationId: dcim_platforms_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -16966,9 +16993,10 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-connections/:
+  /dcim/power-connections:
     get:
       operationId: dcim_power_connections_list
+      description: Power_connections_list
       parameters:
       - in: query
         name: device
@@ -17130,7 +17158,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedPowerPortList'
           description: ''
-  /dcim/power-feeds/:
+  /dcim/power-feeds:
     get:
       operationId: dcim_power_feeds_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -17857,7 +17885,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-feeds/{id}/:
+  /dcim/power-feeds/{id}:
     get:
       operationId: dcim_power_feeds_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -17973,7 +18001,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-feeds/{id}/trace/:
+  /dcim/power-feeds/{id}/trace:
     get:
       operationId: dcim_power_feeds_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -17998,7 +18026,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PowerFeed'
           description: ''
-  /dcim/power-outlet-templates/:
+  /dcim/power-outlet-templates:
     get:
       operationId: dcim_power_outlet_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -18404,7 +18432,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-outlet-templates/{id}/:
+  /dcim/power-outlet-templates/{id}:
     get:
       operationId: dcim_power_outlet_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -18520,7 +18548,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-outlets/:
+  /dcim/power-outlets:
     get:
       operationId: dcim_power_outlets_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -19171,7 +19199,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-outlets/{id}/:
+  /dcim/power-outlets/{id}:
     get:
       operationId: dcim_power_outlets_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -19287,7 +19315,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-outlets/{id}/trace/:
+  /dcim/power-outlets/{id}/trace:
     get:
       operationId: dcim_power_outlets_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -19312,7 +19340,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PowerOutlet'
           description: ''
-  /dcim/power-panels/:
+  /dcim/power-panels:
     get:
       operationId: dcim_power_panels_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -19819,7 +19847,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-panels/{id}/:
+  /dcim/power-panels/{id}:
     get:
       operationId: dcim_power_panels_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -19931,7 +19959,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-port-templates/:
+  /dcim/power-port-templates:
     get:
       operationId: dcim_power_port_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -20423,7 +20451,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-port-templates/{id}/:
+  /dcim/power-port-templates/{id}:
     get:
       operationId: dcim_power_port_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -20539,7 +20567,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-ports/:
+  /dcim/power-ports:
     get:
       operationId: dcim_power_ports_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -21276,7 +21304,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-ports/{id}/:
+  /dcim/power-ports/{id}:
     get:
       operationId: dcim_power_ports_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -21392,7 +21420,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/power-ports/{id}/trace/:
+  /dcim/power-ports/{id}/trace:
     get:
       operationId: dcim_power_ports_trace_retrieve
       description: Trace a complete cable path and return each segment as a three-tuple
@@ -21417,7 +21445,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PowerPort'
           description: ''
-  /dcim/rack-groups/:
+  /dcim/rack-groups:
     get:
       operationId: dcim_rack_groups_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -22157,7 +22185,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rack-groups/{id}/:
+  /dcim/rack-groups/{id}:
     get:
       operationId: dcim_rack_groups_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -22273,7 +22301,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rack-reservations/:
+  /dcim/rack-reservations:
     get:
       operationId: dcim_rack_reservations_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -22786,7 +22814,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rack-reservations/{id}/:
+  /dcim/rack-reservations/{id}:
     get:
       operationId: dcim_rack_reservations_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -22898,7 +22926,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rack-roles/:
+  /dcim/rack-roles:
     get:
       operationId: dcim_rack_roles_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -23520,7 +23548,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rack-roles/{id}/:
+  /dcim/rack-roles/{id}:
     get:
       operationId: dcim_rack_roles_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -23636,7 +23664,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/racks/:
+  /dcim/racks:
     get:
       operationId: dcim_racks_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -24724,7 +24752,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/racks/{id}/:
+  /dcim/racks/{id}:
     get:
       operationId: dcim_racks_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -24840,7 +24868,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/racks/{id}/elevation/:
+  /dcim/racks/{id}/elevation:
     get:
       operationId: dcim_racks_elevation_list
       description: Rack elevation representing the list of rack units. Also supports
@@ -25886,7 +25914,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedRackUnitList'
           description: ''
-  /dcim/rear-port-templates/:
+  /dcim/rear-port-templates:
     get:
       operationId: dcim_rear_port_templates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -26330,7 +26358,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rear-port-templates/{id}/:
+  /dcim/rear-port-templates/{id}:
     get:
       operationId: dcim_rear_port_templates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -26446,7 +26474,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rear-ports/:
+  /dcim/rear-ports:
     get:
       operationId: dcim_rear_ports_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -27120,7 +27148,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rear-ports/{id}/:
+  /dcim/rear-ports/{id}:
     get:
       operationId: dcim_rear_ports_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -27236,7 +27264,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/rear-ports/{id}/paths/:
+  /dcim/rear-ports/{id}/paths:
     get:
       operationId: dcim_rear_ports_paths_retrieve
       description: Return all CablePaths which traverse a given pass-through port.
@@ -27260,7 +27288,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RearPort'
           description: ''
-  /dcim/regions/:
+  /dcim/regions:
     get:
       operationId: dcim_regions_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -27922,7 +27950,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/regions/{id}/:
+  /dcim/regions/{id}:
     get:
       operationId: dcim_regions_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -28038,7 +28066,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/sites/:
+  /dcim/sites:
     get:
       operationId: dcim_sites_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -29294,7 +29322,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/sites/{id}/:
+  /dcim/sites/{id}:
     get:
       operationId: dcim_sites_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -29410,7 +29438,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/virtual-chassis/:
+  /dcim/virtual-chassis:
     get:
       operationId: dcim_virtual_chassis_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -30089,7 +30117,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /dcim/virtual-chassis/{id}/:
+  /dcim/virtual-chassis/{id}:
     get:
       operationId: dcim_virtual_chassis_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -30201,7 +30229,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/computed-fields/:
+  /extras/computed-fields:
     get:
       operationId: extras_computed_fields_list
       description: Manage Computed Fields through DELETE, GET, POST, PUT, and PATCH
@@ -30723,7 +30751,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/computed-fields/{id}/:
+  /extras/computed-fields/{id}:
     get:
       operationId: extras_computed_fields_retrieve
       description: Manage Computed Fields through DELETE, GET, POST, PUT, and PATCH
@@ -30839,7 +30867,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/config-context-schemas/:
+  /extras/config-context-schemas:
     get:
       operationId: extras_config_context_schemas_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -31322,7 +31350,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/config-context-schemas/{id}/:
+  /extras/config-context-schemas/{id}:
     get:
       operationId: extras_config_context_schemas_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -31434,7 +31462,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/config-contexts/:
+  /extras/config-contexts:
     get:
       operationId: extras_config_contexts_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -32277,7 +32305,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/config-contexts/{id}/:
+  /extras/config-contexts/{id}:
     get:
       operationId: extras_config_contexts_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -32389,7 +32417,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/content-types/:
+  /extras/content-types:
     get:
       operationId: extras_content_types_list
       description: Read-only list of ContentTypes. Limit results to ContentTypes pertinent
@@ -32431,7 +32459,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedContentTypeList'
           description: ''
-  /extras/content-types/{id}/:
+  /extras/content-types/{id}:
     get:
       operationId: extras_content_types_retrieve
       description: Read-only list of ContentTypes. Limit results to ContentTypes pertinent
@@ -32455,7 +32483,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ContentType'
           description: ''
-  /extras/custom-field-choices/:
+  /extras/custom-field-choices:
     get:
       operationId: extras_custom_field_choices_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -32906,7 +32934,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/custom-field-choices/{id}/:
+  /extras/custom-field-choices/{id}:
     get:
       operationId: extras_custom_field_choices_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -33018,7 +33046,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/custom-fields/:
+  /extras/custom-fields:
     get:
       operationId: extras_custom_fields_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -33461,7 +33489,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/custom-fields/{id}/:
+  /extras/custom-fields/{id}:
     get:
       operationId: extras_custom_fields_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -33573,7 +33601,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/custom-links/:
+  /extras/custom-links:
     get:
       operationId: extras_custom_links_list
       description: Manage Custom Links through DELETE, GET, POST, PUT, and PATCH requests.
@@ -34218,7 +34246,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/custom-links/{id}/:
+  /extras/custom-links/{id}:
     get:
       operationId: extras_custom_links_retrieve
       description: Manage Custom Links through DELETE, GET, POST, PUT, and PATCH requests.
@@ -34330,7 +34358,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/dynamic-groups/:
+  /extras/dynamic-groups:
     get:
       operationId: extras_dynamic_groups_list
       description: Manage Dynamic Groups through DELETE, GET, POST, PUT, and PATCH
@@ -34968,7 +34996,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/dynamic-groups/{id}/:
+  /extras/dynamic-groups/{id}:
     get:
       operationId: extras_dynamic_groups_retrieve
       description: Manage Dynamic Groups through DELETE, GET, POST, PUT, and PATCH
@@ -35084,7 +35112,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/dynamic-groups/{id}/members/:
+  /extras/dynamic-groups/{id}/members:
     get:
       operationId: extras_dynamic_groups_members_retrieve
       description: List member objects of the same type as the `content_type` for
@@ -35109,7 +35137,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DynamicGroup'
           description: ''
-  /extras/export-templates/:
+  /extras/export-templates:
     get:
       operationId: extras_export_templates_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -35614,7 +35642,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/export-templates/{id}/:
+  /extras/export-templates/{id}:
     get:
       operationId: extras_export_templates_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -35726,7 +35754,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/git-repositories/:
+  /extras/git-repositories:
     get:
       operationId: extras_git_repositories_list
       description: Manage the use of Git repositories as external data sources.
@@ -36509,7 +36537,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/git-repositories/{id}/:
+  /extras/git-repositories/{id}:
     get:
       operationId: extras_git_repositories_retrieve
       description: Manage the use of Git repositories as external data sources.
@@ -36621,7 +36649,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/git-repositories/{id}/sync/:
+  /extras/git-repositories/{id}/sync:
     post:
       operationId: extras_git_repositories_sync_create
       description: Enqueue pull git repository and refresh data.
@@ -36657,7 +36685,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GitRepository'
           description: ''
-  /extras/graphql-queries/:
+  /extras/graphql-queries:
     get:
       operationId: extras_graphql_queries_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -37006,7 +37034,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/graphql-queries/{id}/:
+  /extras/graphql-queries/{id}:
     get:
       operationId: extras_graphql_queries_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -37118,7 +37146,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/graphql-queries/{id}/run/:
+  /extras/graphql-queries/{id}/run:
     post:
       operationId: extras_graphql_queries_run_create
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -37153,7 +37181,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GraphQLQueryOutput'
           description: ''
-  /extras/image-attachments/:
+  /extras/image-attachments:
     get:
       operationId: extras_image_attachments_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -37653,7 +37681,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/image-attachments/{id}/:
+  /extras/image-attachments/{id}:
     get:
       operationId: extras_image_attachments_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -37765,7 +37793,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/job-logs/:
+  /extras/job-logs:
     get:
       operationId: extras_job_logs_list
       description: Retrieve a list of job log entries.
@@ -38445,7 +38473,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedJobLogEntryList'
           description: ''
-  /extras/job-logs/{id}/:
+  /extras/job-logs/{id}:
     get:
       operationId: extras_job_logs_retrieve
       description: Retrieve a list of job log entries.
@@ -38469,7 +38497,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobLogEntry'
           description: ''
-  /extras/job-results/:
+  /extras/job-results:
     get:
       operationId: extras_job_results_list
       description: Retrieve a list of job results
@@ -38916,7 +38944,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/job-results/{id}/:
+  /extras/job-results/{id}:
     get:
       operationId: extras_job_results_retrieve
       description: Retrieve a list of job results
@@ -39028,7 +39056,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/job-results/{id}/logs/:
+  /extras/job-results/{id}/logs:
     get:
       operationId: extras_job_results_logs_retrieve
       description: Retrieve a list of job results
@@ -39052,7 +39080,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobResult'
           description: ''
-  /extras/jobs/:
+  /extras/jobs:
     get:
       operationId: extras_jobs_list
       description: List all known Jobs.
@@ -39970,6 +39998,7 @@ paths:
           description: ''
     put:
       operationId: extras_jobs_bulk_update
+      description: Bulk update
       tags:
       - extras
       requestBody:
@@ -39996,6 +40025,7 @@ paths:
           description: ''
     patch:
       operationId: extras_jobs_bulk_partial_update
+      description: Bulk partial update
       tags:
       - extras
       requestBody:
@@ -40021,6 +40051,7 @@ paths:
           description: ''
     delete:
       operationId: extras_jobs_bulk_destroy
+      description: Bulk destroy jobs
       tags:
       - extras
       security:
@@ -40029,7 +40060,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/jobs/{class_path}/:
+  /extras/jobs/{class_path}:
     get:
       operationId: extras_jobs_read_deprecated
       description: |-
@@ -40056,7 +40087,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobClassDetail'
           description: ''
-  /extras/jobs/{class_path}/run/:
+  /extras/jobs/{class_path}/run:
     post:
       operationId: extras_jobs_run_deprecated
       description: |-
@@ -40094,9 +40125,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobClassDetail'
           description: ''
-  /extras/jobs/{id}/:
+  /extras/jobs/{id}:
     get:
       operationId: extras_jobs_retrieve
+      description: Retrieve jobs
       parameters:
       - in: path
         name: id
@@ -40119,6 +40151,7 @@ paths:
           description: ''
     put:
       operationId: extras_jobs_update
+      description: Update jobs
       parameters:
       - in: path
         name: id
@@ -40153,6 +40186,7 @@ paths:
           description: ''
     patch:
       operationId: extras_jobs_partial_update
+      description: Partially update jobs
       parameters:
       - in: path
         name: id
@@ -40202,7 +40236,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/jobs/{id}/run/:
+  /extras/jobs/{id}/run:
     post:
       operationId: extras_jobs_run_create
       description: Run the specified Job.
@@ -40237,7 +40271,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobRunResponse'
           description: ''
-  /extras/jobs/{id}/variables/:
+  /extras/jobs/{id}/variables:
     get:
       operationId: extras_jobs_variables_list
       description: Get details of the input variables that may/must be specified to
@@ -40274,7 +40308,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedJobVariableList'
           description: ''
-  /extras/object-changes/:
+  /extras/object-changes:
     get:
       operationId: extras_object_changes_list
       description: Retrieve a list of recent changes.
@@ -41028,7 +41062,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedObjectChangeList'
           description: ''
-  /extras/object-changes/{id}/:
+  /extras/object-changes/{id}:
     get:
       operationId: extras_object_changes_retrieve
       description: Retrieve a list of recent changes.
@@ -41052,7 +41086,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ObjectChange'
           description: ''
-  /extras/relationship-associations/:
+  /extras/relationship-associations:
     get:
       operationId: extras_relationship_associations_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -41600,7 +41634,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/relationship-associations/{id}/:
+  /extras/relationship-associations/{id}:
     get:
       operationId: extras_relationship_associations_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -41712,7 +41746,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/relationships/:
+  /extras/relationships:
     get:
       operationId: extras_relationships_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -42112,7 +42146,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/relationships/{id}/:
+  /extras/relationships/{id}:
     get:
       operationId: extras_relationships_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -42224,7 +42258,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/scheduled-jobs/:
+  /extras/scheduled-jobs:
     get:
       operationId: extras_scheduled_jobs_list
       description: Retrieve a list of scheduled jobs
@@ -42594,7 +42628,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedScheduledJobList'
           description: ''
-  /extras/scheduled-jobs/{id}/:
+  /extras/scheduled-jobs/{id}:
     get:
       operationId: extras_scheduled_jobs_retrieve
       description: Retrieve a list of scheduled jobs
@@ -42618,7 +42652,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScheduledJob'
           description: ''
-  /extras/scheduled-jobs/{id}/approve/:
+  /extras/scheduled-jobs/{id}/approve:
     post:
       operationId: extras_scheduled_jobs_approve_create
       description: Retrieve a list of scheduled jobs
@@ -42647,7 +42681,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScheduledJob'
           description: ''
-  /extras/scheduled-jobs/{id}/deny/:
+  /extras/scheduled-jobs/{id}/deny:
     post:
       operationId: extras_scheduled_jobs_deny_create
       description: Retrieve a list of scheduled jobs
@@ -42671,7 +42705,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScheduledJob'
           description: ''
-  /extras/scheduled-jobs/{id}/dry-run/:
+  /extras/scheduled-jobs/{id}/dry-run:
     post:
       operationId: extras_scheduled_jobs_dry_run_create
       description: Retrieve a list of scheduled jobs
@@ -42695,7 +42729,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobResult'
           description: ''
-  /extras/secrets/:
+  /extras/secrets:
     get:
       operationId: extras_secrets_list
       description: Manage Secrets through DELETE, GET, POST, PUT, and PATCH requests.
@@ -43312,7 +43346,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/secrets-groups/:
+  /extras/secrets-groups:
     get:
       operationId: extras_secrets_groups_list
       description: Manage Secrets Groups through DELETE, GET, POST, PUT, and PATCH
@@ -43822,7 +43856,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/secrets-groups-associations/:
+  /extras/secrets-groups-associations:
     get:
       operationId: extras_secrets_groups_associations_list
       description: Manage Secrets Group Associations through DELETE, GET, POST, PUT,
@@ -44181,7 +44215,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/secrets-groups-associations/{id}/:
+  /extras/secrets-groups-associations/{id}:
     get:
       operationId: extras_secrets_groups_associations_retrieve
       description: Manage Secrets Group Associations through DELETE, GET, POST, PUT,
@@ -44297,7 +44331,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/secrets-groups/{id}/:
+  /extras/secrets-groups/{id}:
     get:
       operationId: extras_secrets_groups_retrieve
       description: Manage Secrets Groups through DELETE, GET, POST, PUT, and PATCH
@@ -44413,7 +44447,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/secrets/{id}/:
+  /extras/secrets/{id}:
     get:
       operationId: extras_secrets_retrieve
       description: Manage Secrets through DELETE, GET, POST, PUT, and PATCH requests.
@@ -44525,7 +44559,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/statuses/:
+  /extras/statuses:
     get:
       operationId: extras_statuses_list
       description: View and manage custom status choices for objects with a `status`
@@ -45163,7 +45197,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/statuses/{id}/:
+  /extras/statuses/{id}:
     get:
       operationId: extras_statuses_retrieve
       description: View and manage custom status choices for objects with a `status`
@@ -45279,7 +45313,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/tags/:
+  /extras/tags:
     get:
       operationId: extras_tags_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -45917,7 +45951,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/tags/{id}/:
+  /extras/tags/{id}:
     get:
       operationId: extras_tags_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -46033,7 +46067,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/webhooks/:
+  /extras/webhooks:
     get:
       operationId: extras_webhooks_list
       description: Manage Webhooks through DELETE, GET, POST, PUT, and PATCH requests.
@@ -46414,7 +46448,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /extras/webhooks/{id}/:
+  /extras/webhooks/{id}:
     get:
       operationId: extras_webhooks_retrieve
       description: Manage Webhooks through DELETE, GET, POST, PUT, and PATCH requests.
@@ -46526,7 +46560,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /graphql/:
+  /graphql:
     post:
       operationId: graphql_create
       description: Query the database using a GraphQL query
@@ -46569,7 +46603,7 @@ paths:
                     items:
                       type: object
           description: ''
-  /ipam/aggregates/:
+  /ipam/aggregates:
     get:
       operationId: ipam_aggregates_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -47053,7 +47087,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/aggregates/{id}/:
+  /ipam/aggregates/{id}:
     get:
       operationId: ipam_aggregates_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -47169,7 +47203,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/ip-addresses/:
+  /ipam/ip-addresses:
     get:
       operationId: ipam_ip_addresses_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -47899,7 +47933,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/ip-addresses/{id}/:
+  /ipam/ip-addresses/{id}:
     get:
       operationId: ipam_ip_addresses_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -48015,7 +48049,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/prefixes/:
+  /ipam/prefixes:
     get:
       operationId: ipam_prefixes_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -48663,7 +48697,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/prefixes/{id}/:
+  /ipam/prefixes/{id}:
     get:
       operationId: ipam_prefixes_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -48779,7 +48813,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/prefixes/{id}/available-ips/:
+  /ipam/prefixes/{id}/available-ips:
     get:
       operationId: ipam_prefixes_available_ips_list
       description: |-
@@ -48880,7 +48914,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedAvailableIPList'
           description: ''
-  /ipam/prefixes/{id}/available-prefixes/:
+  /ipam/prefixes/{id}/available-prefixes:
     get:
       operationId: ipam_prefixes_available_prefixes_list
       description: |-
@@ -48959,7 +48993,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Prefix'
           description: ''
-  /ipam/rirs/:
+  /ipam/rirs:
     get:
       operationId: ipam_rirs_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -49585,7 +49619,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/rirs/{id}/:
+  /ipam/rirs/{id}:
     get:
       operationId: ipam_rirs_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -49701,7 +49735,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/roles/:
+  /ipam/roles:
     get:
       operationId: ipam_roles_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -50211,7 +50245,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/roles/{id}/:
+  /ipam/roles/{id}:
     get:
       operationId: ipam_roles_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -50327,7 +50361,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/route-targets/:
+  /ipam/route-targets:
     get:
       operationId: ipam_route_targets_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -50905,7 +50939,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/route-targets/{id}/:
+  /ipam/route-targets/{id}:
     get:
       operationId: ipam_route_targets_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -51021,7 +51055,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/services/:
+  /ipam/services:
     get:
       operationId: ipam_services_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -51529,7 +51563,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/services/{id}/:
+  /ipam/services/{id}:
     get:
       operationId: ipam_services_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -51645,7 +51679,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/vlan-groups/:
+  /ipam/vlan-groups:
     get:
       operationId: ipam_vlan_groups_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -52347,7 +52381,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/vlan-groups/{id}/:
+  /ipam/vlan-groups/{id}:
     get:
       operationId: ipam_vlan_groups_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -52463,7 +52497,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/vlans/:
+  /ipam/vlans:
     get:
       operationId: ipam_vlans_list
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -53183,7 +53217,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/vlans/{id}/:
+  /ipam/vlans/{id}:
     get:
       operationId: ipam_vlans_retrieve
       description: Mixin to set `metadata_class` to implement `status` field in model
@@ -53299,7 +53333,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/vrfs/:
+  /ipam/vrfs:
     get:
       operationId: ipam_vrfs_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -53985,7 +54019,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /ipam/vrfs/{id}/:
+  /ipam/vrfs/{id}:
     get:
       operationId: ipam_vrfs_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -54101,7 +54135,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/chatops/accessgrant/:
+  /plugins/chatops/accessgrant:
     get:
       operationId: plugins_chatops_accessgrant_list
       description: API viewset for interacting with AccessGrant objects.
@@ -54247,7 +54281,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/chatops/accessgrant/{id}/:
+  /plugins/chatops/accessgrant/{id}:
     get:
       operationId: plugins_chatops_accessgrant_retrieve
       description: API viewset for interacting with AccessGrant objects.
@@ -54359,7 +54393,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/chatops/commandtoken/:
+  /plugins/chatops/commandtoken:
     get:
       operationId: plugins_chatops_commandtoken_list
       description: API viewset for interacting with CommandToken objects.
@@ -54497,7 +54531,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/chatops/commandtoken/{id}/:
+  /plugins/chatops/commandtoken/{id}:
     get:
       operationId: plugins_chatops_commandtoken_retrieve
       description: API viewset for interacting with CommandToken objects.
@@ -54609,7 +54643,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/circuitimpact/:
+  /plugins/circuit-maintenance/circuitimpact:
     get:
       operationId: plugins_circuit_maintenance_circuitimpact_list
       description: API view for Circuit Impact CRUD operations.
@@ -54885,7 +54919,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/circuitimpact/{id}/:
+  /plugins/circuit-maintenance/circuitimpact/{id}:
     get:
       operationId: plugins_circuit_maintenance_circuitimpact_retrieve
       description: API view for Circuit Impact CRUD operations.
@@ -54997,7 +55031,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/maintenance/:
+  /plugins/circuit-maintenance/maintenance:
     get:
       operationId: plugins_circuit_maintenance_maintenance_list
       description: API view for Circuit Maintenance CRUD operations.
@@ -55276,7 +55310,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/maintenance/{id}/:
+  /plugins/circuit-maintenance/maintenance/{id}:
     get:
       operationId: plugins_circuit_maintenance_maintenance_retrieve
       description: API view for Circuit Maintenance CRUD operations.
@@ -55388,7 +55422,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/note/:
+  /plugins/circuit-maintenance/note:
     get:
       operationId: plugins_circuit_maintenance_note_list
       description: API view for Circuit Note CRUD operations.
@@ -55508,7 +55542,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/note/{id}/:
+  /plugins/circuit-maintenance/note/{id}:
     get:
       operationId: plugins_circuit_maintenance_note_retrieve
       description: API view for Circuit Note CRUD operations.
@@ -55620,7 +55654,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/circuit-maintenance/notificationsource/:
+  /plugins/circuit-maintenance/notificationsource:
     get:
       operationId: plugins_circuit_maintenance_notificationsource_list
       description: API view for Notification Source CRUD operations.
@@ -55882,7 +55916,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationSourceList'
           description: ''
-  /plugins/circuit-maintenance/notificationsource/{id}/:
+  /plugins/circuit-maintenance/notificationsource/{id}:
     get:
       operationId: plugins_circuit_maintenance_notificationsource_retrieve
       description: API view for Notification Source CRUD operations.
@@ -55906,7 +55940,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotificationSource'
           description: ''
-  /plugins/data-validation-engine/rules/min-max/:
+  /plugins/data-validation-engine/rules/min-max:
     get:
       operationId: plugins_data_validation_engine_rules_min_max_list
       description: View to manage min max expression validation rules
@@ -56763,7 +56797,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/data-validation-engine/rules/min-max/{id}/:
+  /plugins/data-validation-engine/rules/min-max/{id}:
     get:
       operationId: plugins_data_validation_engine_rules_min_max_retrieve
       description: View to manage min max expression validation rules
@@ -56875,7 +56909,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/data-validation-engine/rules/regex/:
+  /plugins/data-validation-engine/rules/regex:
     get:
       operationId: plugins_data_validation_engine_rules_regex_list
       description: View to manage regular expression validation rules
@@ -57736,7 +57770,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/data-validation-engine/rules/regex/{id}/:
+  /plugins/data-validation-engine/rules/regex/{id}:
     get:
       operationId: plugins_data_validation_engine_rules_regex_retrieve
       description: View to manage regular expression validation rules
@@ -57852,7 +57886,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/device-onboarding/onboarding/:
+  /plugins/device-onboarding/onboarding:
     get:
       operationId: plugins_device_onboarding_onboarding_list
       description: |-
@@ -57973,7 +58007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OnboardingTask'
           description: ''
-  /plugins/device-onboarding/onboarding/{id}/:
+  /plugins/device-onboarding/onboarding/{id}:
     get:
       operationId: plugins_device_onboarding_onboarding_retrieve
       description: |-
@@ -58022,7 +58056,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/compliance-feature/:
+  /plugins/golden-config/compliance-feature:
     get:
       operationId: plugins_golden_config_compliance_feature_list
       description: API viewset for interacting with ComplianceFeature objects.
@@ -58156,7 +58190,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/compliance-feature/{id}/:
+  /plugins/golden-config/compliance-feature/{id}:
     get:
       operationId: plugins_golden_config_compliance_feature_retrieve
       description: API viewset for interacting with ComplianceFeature objects.
@@ -58268,7 +58302,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/compliance-rule/:
+  /plugins/golden-config/compliance-rule:
     get:
       operationId: plugins_golden_config_compliance_rule_list
       description: API viewset for interacting with ComplianceRule objects.
@@ -58422,7 +58456,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/compliance-rule/{id}/:
+  /plugins/golden-config/compliance-rule/{id}:
     get:
       operationId: plugins_golden_config_compliance_rule_retrieve
       description: API viewset for interacting with ComplianceRule objects.
@@ -58534,7 +58568,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/config-compliance/:
+  /plugins/golden-config/config-compliance:
     get:
       operationId: plugins_golden_config_config_compliance_list
       description: API viewset for interacting with ConfigCompliance objects.
@@ -58898,7 +58932,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/config-compliance/{id}/:
+  /plugins/golden-config/config-compliance/{id}:
     get:
       operationId: plugins_golden_config_config_compliance_retrieve
       description: API viewset for interacting with ConfigCompliance objects.
@@ -59010,7 +59044,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/config-remove/:
+  /plugins/golden-config/config-remove:
     get:
       operationId: plugins_golden_config_config_remove_list
       description: API viewset for interacting with ConfigRemove objects.
@@ -59163,7 +59197,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/config-remove/{id}/:
+  /plugins/golden-config/config-remove/{id}:
     get:
       operationId: plugins_golden_config_config_remove_retrieve
       description: API viewset for interacting with ConfigRemove objects.
@@ -59275,7 +59309,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/config-replace/:
+  /plugins/golden-config/config-replace:
     get:
       operationId: plugins_golden_config_config_replace_list
       description: API viewset for interacting with ConfigReplace objects.
@@ -59428,7 +59462,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/config-replace/{id}/:
+  /plugins/golden-config/config-replace/{id}:
     get:
       operationId: plugins_golden_config_config_replace_retrieve
       description: API viewset for interacting with ConfigReplace objects.
@@ -59540,7 +59574,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/golden-config/:
+  /plugins/golden-config/golden-config:
     get:
       operationId: plugins_golden_config_golden_config_list
       description: API viewset for interacting with GoldenConfig objects.
@@ -59904,7 +59938,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/golden-config-settings/:
+  /plugins/golden-config/golden-config-settings:
     get:
       operationId: plugins_golden_config_golden_config_settings_list
       description: API viewset for interacting with GoldenConfigSetting objects.
@@ -60024,7 +60058,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/golden-config-settings/{id}/:
+  /plugins/golden-config/golden-config-settings/{id}:
     get:
       operationId: plugins_golden_config_golden_config_settings_retrieve
       description: API viewset for interacting with GoldenConfigSetting objects.
@@ -60136,7 +60170,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/golden-config/{id}/:
+  /plugins/golden-config/golden-config/{id}:
     get:
       operationId: plugins_golden_config_golden_config_retrieve
       description: API viewset for interacting with GoldenConfig objects.
@@ -60248,7 +60282,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/golden-config/sotagg/{id}/:
+  /plugins/golden-config/sotagg/{id}:
     get:
       operationId: plugins_golden_config_sotagg_retrieve
       description: Get method serialize for a dictionary to json response.
@@ -60268,7 +60302,7 @@ paths:
       responses:
         '200':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/contact/:
+  /plugins/nautobot-device-lifecycle-mgmt/contact:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_contact_list
       description: CRUD operations set for the Contact Lifecycle Management view.
@@ -60426,7 +60460,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/contact/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/contact/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_contact_retrieve
       description: CRUD operations set for the Contact Lifecycle Management view.
@@ -60538,7 +60572,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/contract/:
+  /plugins/nautobot-device-lifecycle-mgmt/contract:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_contract_list
       description: CRUD operations set for the Contract Lifecycle Management view.
@@ -60723,7 +60757,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/contract/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/contract/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_contract_retrieve
       description: CRUD operations set for the Contract Lifecycle Management view.
@@ -60835,7 +60869,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/cve/:
+  /plugins/nautobot-device-lifecycle-mgmt/cve:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_cve_list
       description: REST API viewset for CVELCM records.
@@ -61075,7 +61109,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/cve/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/cve/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_cve_retrieve
       description: REST API viewset for CVELCM records.
@@ -61187,7 +61221,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/hardware/:
+  /plugins/nautobot-device-lifecycle-mgmt/hardware:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_hardware_list
       description: CRUD operations set for the Hardware Lifecycle Management view.
@@ -61409,7 +61443,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/hardware/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/hardware/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_hardware_retrieve
       description: CRUD operations set for the Hardware Lifecycle Management view.
@@ -61520,7 +61554,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/provider/:
+  /plugins/nautobot-device-lifecycle-mgmt/provider:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_provider_list
       description: CRUD operations set for the Contract Provider Lifecycle Management
@@ -61682,7 +61716,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/provider/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/provider/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_provider_retrieve
       description: CRUD operations set for the Contract Provider Lifecycle Management
@@ -61798,7 +61832,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/software/:
+  /plugins/nautobot-device-lifecycle-mgmt/software:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_software_list
       description: REST API viewset for SoftwareLCM records.
@@ -61972,7 +62006,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/software-image/:
+  /plugins/nautobot-device-lifecycle-mgmt/software-image:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_software_image_list
       description: REST API viewset for SoftwareImageLCM records.
@@ -62205,7 +62239,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/software-image/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/software-image/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_software_image_retrieve
       description: REST API viewset for SoftwareImageLCM records.
@@ -62317,7 +62351,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/software/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/software/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_software_retrieve
       description: REST API viewset for SoftwareLCM records.
@@ -62429,7 +62463,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/validated-software/:
+  /plugins/nautobot-device-lifecycle-mgmt/validated-software:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_validated_software_list
       description: REST API viewset for ValidatedSoftwareLCM records.
@@ -62704,7 +62738,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/validated-software/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/validated-software/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_validated_software_retrieve
       description: REST API viewset for ValidatedSoftwareLCM records.
@@ -62816,7 +62850,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/vulnerability/:
+  /plugins/nautobot-device-lifecycle-mgmt/vulnerability:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_vulnerability_list
       description: REST API viewset for VulnerabilityLCM records.
@@ -62980,7 +63014,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /plugins/nautobot-device-lifecycle-mgmt/vulnerability/{id}/:
+  /plugins/nautobot-device-lifecycle-mgmt/vulnerability/{id}:
     get:
       operationId: plugins_nautobot_device_lifecycle_mgmt_vulnerability_retrieve
       description: REST API viewset for VulnerabilityLCM records.
@@ -63092,7 +63126,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /status/:
+  /status:
     get:
       operationId: status_retrieve
       description: A lightweight read-only endpoint for conveying the current operational
@@ -63124,7 +63158,7 @@ paths:
                   celery-workers-running:
                     type: integer
           description: ''
-  /swagger/:
+  /swagger:
     get:
       operationId: swagger_retrieve
       description: |-
@@ -63523,7 +63557,7 @@ paths:
                 type: object
                 additionalProperties: {}
           description: ''
-  /tenancy/tenant-groups/:
+  /tenancy/tenant-groups:
     get:
       operationId: tenancy_tenant_groups_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -64185,7 +64219,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /tenancy/tenant-groups/{id}/:
+  /tenancy/tenant-groups/{id}:
     get:
       operationId: tenancy_tenant_groups_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -64301,7 +64335,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /tenancy/tenants/:
+  /tenancy/tenants:
     get:
       operationId: tenancy_tenants_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -64867,7 +64901,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /tenancy/tenants/{id}/:
+  /tenancy/tenants/{id}:
     get:
       operationId: tenancy_tenants_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -64983,7 +65017,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/config/:
+  /users/config:
     get:
       operationId: users_config_retrieve
       description: Return the config_data for the currently authenticated User.
@@ -65000,7 +65034,7 @@ paths:
                 type: object
                 additionalProperties: {}
           description: ''
-  /users/groups/:
+  /users/groups:
     get:
       operationId: users_groups_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -65285,7 +65319,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/groups/{id}/:
+  /users/groups/{id}:
     get:
       operationId: users_groups_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -65393,7 +65427,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/permissions/:
+  /users/permissions:
     get:
       operationId: users_permissions_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -65845,7 +65879,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/permissions/{id}/:
+  /users/permissions/{id}:
     get:
       operationId: users_permissions_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -65957,7 +65991,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/tokens/:
+  /users/tokens:
     get:
       operationId: users_tokens_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -66435,7 +66469,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/tokens/{id}/:
+  /users/tokens/{id}:
     get:
       operationId: users_tokens_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -66550,7 +66584,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/users/:
+  /users/users:
     get:
       operationId: users_users_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -67293,7 +67327,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/users/{id}/:
+  /users/users/{id}:
     get:
       operationId: users_users_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -67405,7 +67439,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/cluster-groups/:
+  /virtualization/cluster-groups:
     get:
       operationId: virtualization_cluster_groups_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -68027,7 +68061,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/cluster-groups/{id}/:
+  /virtualization/cluster-groups/{id}:
     get:
       operationId: virtualization_cluster_groups_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -68143,7 +68177,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/cluster-types/:
+  /virtualization/cluster-types:
     get:
       operationId: virtualization_cluster_types_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -68765,7 +68799,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/cluster-types/{id}/:
+  /virtualization/cluster-types/{id}:
     get:
       operationId: virtualization_cluster_types_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -68881,7 +68915,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/clusters/:
+  /virtualization/clusters:
     get:
       operationId: virtualization_clusters_list
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -69533,7 +69567,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/clusters/{id}/:
+  /virtualization/clusters/{id}:
     get:
       operationId: virtualization_clusters_retrieve
       description: Include the applicable set of CustomFields in the ModelViewSet
@@ -69649,7 +69683,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/interfaces/:
+  /virtualization/interfaces:
     get:
       operationId: virtualization_interfaces_list
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -70296,7 +70330,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/interfaces/{id}/:
+  /virtualization/interfaces/{id}:
     get:
       operationId: virtualization_interfaces_retrieve
       description: Extend DRF's ModelViewSet to support bulk update and delete functions.
@@ -70408,7 +70442,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/virtual-machines/:
+  /virtualization/virtual-machines:
     get:
       operationId: virtualization_virtual_machines_list
       description: |-
@@ -71528,7 +71562,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /virtualization/virtual-machines/{id}/:
+  /virtualization/virtual-machines/{id}:
     get:
       operationId: virtualization_virtual_machines_retrieve
       description: |-
@@ -71852,10 +71886,10 @@ components:
           properties:
             value:
               type: string
-              enum: []
+              enum: [a]
             label:
               type: string
-              enum: []
+              enum: [b]
         description:
           type: string
           nullable: true
@@ -76641,7 +76675,7 @@ components:
         data:
           type: object
           additionalProperties: {}
-          default: ''
+          default: {}
         commit:
           type: boolean
         schedule:
@@ -90468,7 +90502,7 @@ components:
       - url
     Status4f5Enum:
       type: string
-      enum: []
+      enum: [a: a]
     SubdeviceRoleEnum:
       enum:
       - parent
@@ -91486,10 +91520,10 @@ components:
           properties:
             value:
               type: string
-              enum: []
+              enum: [a: a]
             label:
               type: string
-              enum: []
+              enum: [b: b]
         custom_fields:
           type: object
           additionalProperties: {}
