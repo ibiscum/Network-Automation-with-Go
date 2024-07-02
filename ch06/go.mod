@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch06
 
-go 1.22.1
+go 1.22.0
 
 require (
 	github.com/scrapli/scrapligo v1.3.1

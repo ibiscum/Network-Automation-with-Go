@@ -14,7 +14,7 @@ type myReader struct {
 func (r *myReader) Read(buf []byte) (int, error) {
 	tmp := make([]byte, len(buf))
 	n, err := r.src.Read(tmp)
-	copy(buf[:n], bytes.Title(tmp[:n]))
+	copy(buf[:n], cases.Title().Bytes(tmp[:n]))
 	return n, err
 }
 

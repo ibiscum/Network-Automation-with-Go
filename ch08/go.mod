@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch08
 
-go 1.22.1
+go 1.22.0
 
 require (
 	cuelang.org/go v0.9.0

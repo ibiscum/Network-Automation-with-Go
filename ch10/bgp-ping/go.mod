@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch10/bgp-ping
 
-go 1.22.1
+go 1.22.0
 
 require (
 	github.com/cloudprober/cloudprober v0.11.4

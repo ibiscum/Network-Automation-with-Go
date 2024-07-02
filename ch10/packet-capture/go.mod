@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch10/packet-capture
 
-go 1.22.1
+go 1.22.0
 
 require (
 	github.com/google/gopacket v1.1.19

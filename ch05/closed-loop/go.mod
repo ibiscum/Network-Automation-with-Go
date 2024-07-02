@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch05/closed-loop
 
-go 1.22.1
+go 1.22.0
 
 require (
 	github.com/mitchellh/hashstructure/v2 v2.0.2

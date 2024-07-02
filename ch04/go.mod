@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch04
 
-go 1.22.1
+go 1.22.0
 
 require (
 	github.com/c-robinson/iplib v1.0.8
