@@ -2,6 +2,7 @@ package main
 
 import (
 	"io"
+	"log"
 	"net/http"
 	"os"
 )
@@ -15,5 +16,8 @@ func main() {
 	defer src.Close()
 	dst := os.Stdout
 
-	io.Copy(dst, src)
+	_, err = io.Copy(dst, src)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

@@ -9,7 +9,7 @@ func main() {
 
 	dc["spine"] = "192.168.100.1"
 
-	ip := dc["spine"]
+	// ip := dc["spine"]
 	ip, exists := dc["spine"]
 
 	if exists {

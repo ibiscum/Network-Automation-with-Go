@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch10/top-talkers
 
-go 1.22.1
+go 1.22.0
 
 require (
 	github.com/netsampler/goflow2 v1.0.4

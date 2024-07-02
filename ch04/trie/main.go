@@ -33,7 +33,10 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Printf("%v: %s\n", idx, ipv4Addr)
-		ranger.Insert(cidranger.NewBasicRangerEntry(*ipv4Net))
+		err = ranger.Insert(cidranger.NewBasicRangerEntry(*ipv4Net))
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	fmt.Println("--------------------------------------------")
 

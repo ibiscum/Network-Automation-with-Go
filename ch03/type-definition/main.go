@@ -10,8 +10,7 @@ func main() {
 	a := -1
 
 	// unsigned 32-bit integer, size 4 bytes
-	var b uint32
-	b = 4294967295
+	var b uint32 = 4294967295
 
 	// floating point number, size 4 bytes
 	var c float32 = 42.1
