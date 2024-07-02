@@ -1,10 +1,12 @@
 package main
 
 import (
-	"bytes"
 	"io"
 	"os"
 	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 type myReader struct {
@@ -14,7 +16,7 @@ type myReader struct {
 func (r *myReader) Read(buf []byte) (int, error) {
 	tmp := make([]byte, len(buf))
 	n, err := r.src.Read(tmp)
-	copy(buf[:n], cases.Title().Bytes(tmp[:n]))
+	copy(buf[:n], cases.Title(language.English).Bytes(tmp[:n]))
 	return n, err
 }
 

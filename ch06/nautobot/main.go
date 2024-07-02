@@ -17,7 +17,7 @@ func check(err error) {
 	}
 }
 
-func getDeviceIDs(n *nb.ClientWithResponses, in nb.Device) (fnd bool, out *nb.WritableDeviceWithConfigContext, err error) {
+func getDeviceIDs(n *nb.ClientWithResponses, in nb.Device) (fnd bool, out *nb.WritableDeviceWithConfigContextRequest, err error) {
 	rsp, err := n.DcimDevicesListWithResponse(
 		context.TODO(),
 		&nb.DcimDevicesListParams{
@@ -39,7 +39,7 @@ func getDeviceIDs(n *nb.ClientWithResponses, in nb.Device) (fnd bool, out *nb.Wr
 		fmt.Printf("DeviceType: %v\n", *slc[0].DeviceType.Id)
 		fmt.Printf("Site: %v\n", *slc[0].Site.Id)
 
-		out = &nb.WritableDeviceWithConfigContext{
+		out = &nb.WritableDeviceWithConfigContextRequest{
 			Name:       in.Name,
 			Id:         slc[0].Id,
 			DeviceRole: *slc[0].DeviceRole.Id,
@@ -62,12 +62,12 @@ func getDeviceIDs(n *nb.ClientWithResponses, in nb.Device) (fnd bool, out *nb.Wr
 	if err != nil || !find {
 		return fnd, out, fmt.Errorf("failed to find site id for %s: %w", *in.Name, err)
 	}
-	out = &nb.WritableDeviceWithConfigContext{
+	out = &nb.WritableDeviceWithConfigContextRequest{
 		Name:       in.Name,
 		DeviceRole: dr,
 		DeviceType: dt,
 		Site:       st,
-		Status:     nb.WritableDeviceWithConfigContextStatusEnumActive,
+		Status:     nb.WritableDeviceWithConfigContextRequest,
 		Tags:       &[]nb.TagSerializerField{},
 	}
 	return fnd, out, nil
