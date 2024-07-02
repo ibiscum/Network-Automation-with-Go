@@ -4,7 +4,6 @@ go 1.22.0
 
 require (
 	cuelang.org/go v0.9.0
-	github.com/go-resty/resty/v2 v2.13.1
 	github.com/openconfig/goyang v1.0.0
 	github.com/openconfig/ygot v0.6.0
 	google.golang.org/grpc v1.64.0
