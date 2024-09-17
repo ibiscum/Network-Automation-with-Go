@@ -7,11 +7,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	api "github.com/ibiscum/Network-Automation-with-Go/ch08/json-rpc/pkg/srl"
 	"log"
 	"net/http"
 	"os"
 
+	"github.com/ibiscum/Network-Automation-with-Go/ch08/json-rpc/pkg/srl"
 	"github.com/openconfig/ygot/ygot"
 	"gopkg.in/yaml.v2"
 )
@@ -85,7 +85,7 @@ type Addr struct {
 	IP string `yaml:"ip"`
 }
 
-func (m *Model) buildL3Interfaces(dev *api.Device) error {
+func (m *Model) buildL3Interfaces(dev *srl.Device) error {
 	links := m.Uplinks
 	links = append(
 		links,
@@ -105,7 +105,7 @@ func (m *Model) buildL3Interfaces(dev *api.Device) error {
 			return err
 		}
 
-		subintf.Ipv4 = &api.SrlNokiaInterfaces_Interface_Subinterface_Ipv4{}
+		subintf.Ipv4 = &srl.SrlNokiaInterfaces_Interface_Subinterface_Ipv4{}
 		subintf.Ipv4.NewAddress(link.Prefix)
 
 		if err := intf.Validate(); err != nil {
@@ -116,7 +116,7 @@ func (m *Model) buildL3Interfaces(dev *api.Device) error {
 	return nil
 }
 
-func (m *Model) buildNetworkInstance(dev *api.Device) error {
+func (m *Model) buildNetworkInstance(dev *srl.Device) error {
 	ni, err := dev.NewNetworkInstance(defaultNetInst)
 	if err != nil {
 		return err
@@ -135,12 +135,12 @@ func (m *Model) buildNetworkInstance(dev *api.Device) error {
 		ni.NewInterface(linkName)
 	}
 
-	ni.Protocols = &api.SrlNokiaNetworkInstance_NetworkInstance_Protocols{
-		Bgp: &api.SrlNokiaNetworkInstance_NetworkInstance_Protocols_Bgp{
+	ni.Protocols = &srl.SrlNokiaNetworkInstance_NetworkInstance_Protocols{
+		Bgp: &srl.SrlNokiaNetworkInstance_NetworkInstance_Protocols_Bgp{
 			AutonomousSystem: ygot.Uint32(uint32(m.ASN)),
 			RouterId:         ygot.String(m.Loopback.IP),
-			Ipv4Unicast: &api.SrlNokiaNetworkInstance_NetworkInstance_Protocols_Bgp_Ipv4Unicast{
-				AdminState: api.SrlNokiaBgp_AdminState_enable,
+			Ipv4Unicast: &srl.SrlNokiaNetworkInstance_NetworkInstance_Protocols_Bgp_Ipv4Unicast{
+				AdminState: srl.SrlNokiaBgp_AdminState_enable,
 			},
 		},
 	}
@@ -169,8 +169,8 @@ func (m *Model) buildNetworkInstance(dev *api.Device) error {
 
 }
 
-func (m *Model) buildDefaultPolicy(dev *api.Device) error {
-	dev.RoutingPolicy = &api.SrlNokiaRoutingPolicy_RoutingPolicy{}
+func (m *Model) buildDefaultPolicy(dev *srl.Device) error {
+	dev.RoutingPolicy = &srl.SrlNokiaRoutingPolicy_RoutingPolicy{}
 
 	p, err := dev.RoutingPolicy.NewPolicy(defaultPolicyName)
 	if err != nil {
@@ -178,10 +178,10 @@ func (m *Model) buildDefaultPolicy(dev *api.Device) error {
 	}
 
 	// populating LocalPreference due to YGOT not supporting presence containers, see "ygot/issues/329"
-	p.DefaultAction = &api.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction{
-		Accept: &api.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction_Accept{
-			Bgp: &api.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction_Accept_Bgp{
-				LocalPreference: &api.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction_Accept_Bgp_LocalPreference{
+	p.DefaultAction = &srl.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction{
+		Accept: &srl.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction_Accept{
+			Bgp: &srl.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction_Accept_Bgp{
+				LocalPreference: &srl.SrlNokiaRoutingPolicy_RoutingPolicy_Policy_DefaultAction_Accept_Bgp_LocalPreference{
 					Set: ygot.Uint32(uint32(100)),
 				},
 			},
@@ -223,7 +223,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	device := &api.Device{}
+	device := &srl.Device{}
 
 	if err := input.buildDefaultPolicy(device); err != nil {
 		log.Fatal(err)
