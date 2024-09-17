@@ -1,6 +1,6 @@
 module github.com/ibiscum/Network-Automation-with-Go/ch04
 
-go 1.22.0
+go 1.23.0
 
 require (
 	github.com/c-robinson/iplib v1.0.8
@@ -16,9 +16,9 @@ require (
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/josharian/native v1.1.0 // indirect
 	github.com/mdlayher/netlink v1.7.2 // indirect
-	github.com/mdlayher/socket v0.4.1 // indirect
-	github.com/oschwald/maxminddb-golang v1.13.0 // indirect
-	golang.org/x/net v0.26.0 // indirect
-	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/sys v0.21.0 // indirect
+	github.com/mdlayher/socket v0.5.1 // indirect
+	github.com/oschwald/maxminddb-golang v1.13.1 // indirect
+	golang.org/x/net v0.29.0 // indirect
+	golang.org/x/sync v0.8.0 // indirect
+	golang.org/x/sys v0.25.0 // indirect
 )
