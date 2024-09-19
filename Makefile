@@ -50,3 +50,6 @@ env-delete: check-aws-key check-aws-secret ## Delete test enviroment on AWS. Mak
 
 env-show:  ## Show test environment details
 	@cat lab-state/.vm || echo 'VM state file not found'
+
+lint:
+	go list -f '{{.Dir}}/...' -m | xargs golangci-lint run --timeout 30m -v
