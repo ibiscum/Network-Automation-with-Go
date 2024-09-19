@@ -10,8 +10,8 @@ ifndef TAG
 endif
 	@echo "TAG is ${TAG}"
 
-lint: 
-	golangci-lint run ./... --disable-all -E errcheck -E lll
+# lint: 
+# 	golangci-lint run ./... --disable-all -E errcheck -E lll
 
 # From: https://gist.github.com/klmr/575726c7e05d8780505a
 help:

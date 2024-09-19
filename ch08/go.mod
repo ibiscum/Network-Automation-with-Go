@@ -4,21 +4,19 @@ go 1.23.0
 
 require (
 	cuelang.org/go v0.10.0
-	github.com/openconfig/goyang v1.6.0
-	github.com/openconfig/ygot v0.29.20
+	github.com/openconfig/goyang v0.0.0-20200309174518-a00bece872fc
+	github.com/openconfig/ygot v0.7.2
 	google.golang.org/grpc v1.66.2
 	google.golang.org/protobuf v1.34.2
 	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
-	github.com/kr/pretty v0.3.1 // indirect
-	github.com/kr/text v0.2.0 // indirect
-	github.com/pborman/getopt v1.1.0 // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.3 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
-	golang.org/x/exp v0.0.0-20240909161429-701f63a606c0 // indirect
+	golang.org/x/tools v0.25.0 // indirect
 )
 
 require (
@@ -26,7 +24,6 @@ require (
 	github.com/cockroachdb/apd/v3 v3.2.1 // indirect
 	github.com/emicklei/proto v1.13.2 // indirect
 	github.com/golang/glog v1.2.2 // indirect
-	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect

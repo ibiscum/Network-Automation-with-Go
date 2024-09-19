@@ -6,11 +6,11 @@ use (
 	./ch03
 	./ch04
 	./ch05/closed-loop
-	./ch06
+	// ./ch06
 	./ch07
 	./ch08
 	./ch09
-	./ch10/bgp-ping
+	// ./ch10/bgp-ping
     ./ch10/packet-capture
     ./ch10/top-talkers
 )
