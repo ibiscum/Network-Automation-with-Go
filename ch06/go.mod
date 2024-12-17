@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	github.com/scrapli/scrapligo v1.3.2
 	github.com/scrapli/scrapligocfg v1.0.0
-	golang.org/x/crypto v0.27.0
+	golang.org/x/crypto v0.31.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
@@ -49,7 +49,7 @@ require (
 	github.com/netbox-community/go-netbox v0.0.0-20230225105939-fe852c86b3d6
 	github.com/sirikothe/gotextfsm v1.0.1-0.20200816110946-6aa2cfd355e4 // indirect
 	github.com/yahoo/vssh v0.0.0-20201122023451-bfa903e660fc
-	golang.org/x/sys v0.25.0 // indirect
-	golang.org/x/term v0.24.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/term v0.27.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
