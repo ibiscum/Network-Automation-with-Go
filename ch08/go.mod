@@ -7,7 +7,7 @@ require (
 	github.com/openconfig/goyang v0.0.0-20200309174518-a00bece872fc
 	github.com/openconfig/ygot v0.7.2
 	google.golang.org/grpc v1.69.2
-	google.golang.org/protobuf v1.36.0
+	google.golang.org/protobuf v1.36.1
 	gopkg.in/yaml.v2 v2.4.0
 )
 
