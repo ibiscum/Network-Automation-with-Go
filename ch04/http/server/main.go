@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html"
 	"log"
 	"net"
 	"net/http"
@@ -75,7 +76,7 @@ func lookup(w http.ResponseWriter, req *http.Request) {
 		}
 
 	}
-	fmt.Fprint(w, response)
+	fmt.Fprint(w, html.EscapeString(response))
 }
 
 func check(w http.ResponseWriter, req *http.Request) {
