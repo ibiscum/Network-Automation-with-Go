@@ -150,7 +150,7 @@ func main() {
 		log.Fatal(err)
 	}
 	hostname := listenAddrUrl.Hostname()
-	port, err := strconv.ParseUint(listenAddrUrl.Port(), 10, 64)
+	port, err := strconv.ParseUint(listenAddrUrl.Port(), 10, 16)
 	if err != nil {
 		log.Errorf("Port %s could not be converted to integer", listenAddrUrl.Port())
 		return
